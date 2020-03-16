@@ -1,0 +1,23 @@
+[package]
+name = "tlsproxy"
+version = "0.1.0"
+authors = ["luozijun <luozijun.assistant@gmail.com>"]
+edition = "2018"
+description = "TLS Proxy"
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+log          = "0.4"
+env_logger   = { version = "0.7", default-features = false, features = ["termcolor", "atty", "humantime"] }
+getopts      = "0.2"
+http         = "0.2"
+tokio        = "0.2"
+tokio-rustls = "0.13"
+
+[features]
+default  = [
+    "tokio/tcp",
+    "tokio/io-util",
+    "tokio/rt-threaded",
+    "tokio/dns",
+]
